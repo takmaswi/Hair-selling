@@ -1,0 +1,43 @@
+name = "truthhair"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Account details
+account_id = "6e338a021140d29c153420d8dba7ad9c"
+
+# D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "truthhair-database"
+database_id = "8bcaa605-e7d0-4664-a059-fa807b596409"
+
+# Environment variables (can be overridden in .dev.vars for local development)
+[vars]
+NODE_ENV = "production"
+NEXTAUTH_URL = "https://truthhair.pages.dev"
+
+# Development settings
+[dev]
+port = 8788
+local_protocol = "http"
+
+# Build configuration for Next.js
+[build]
+command = "npm run build"
+
+# Workers KV namespaces for session storage
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "sessions_namespace_id"
+preview_id = "sessions_preview_namespace_id"
+
+# R2 bucket for file storage (optional)
+[[r2_buckets]]
+binding = "FILES"
+bucket_name = "truthhair-files"
+
+# Durable Objects (if needed for real-time features)
+# [[durable_objects.bindings]]
+# name = "WEBSOCKET"
+# class_name = "WebSocketDurableObject"
+# script_name = "websocket-worker"
